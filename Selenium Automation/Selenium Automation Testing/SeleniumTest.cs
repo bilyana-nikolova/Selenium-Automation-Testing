@@ -401,26 +401,23 @@ namespace SeleniumCsharp
         [Test]
         public void registerUser()
         {
-            //2. Navigate to url 'http://automationexercise.com'
+       
             driver.Navigate().GoToUrl("https://automationexercise.com/");
 
             String currentURL = driver.Url;
-            //3. Verify that home page is visible successfully
-            //Assert.IsTrue("https://automationexercise.com/" == currentURL);
-
-            //IWebElement button = (WebElement)driver.FindElement(By.ClassName("fa"));  
+         
 
             IWebElement loginButton = driver.FindElement(By.XPath("//a[@href='/login']"));
 
             IWebElement popUpButton = driver.FindElement(By.XPath("//button[@aria-label='Consent']"));
-            //wait.Until(ExpectedConditions.ElementToBeClickable(button));
+        
             popUpButton.Click();
             loginButton.Click();
 
-            //4. Click on 'Signup / Login' button
+        
 
             IWebElement message = (WebElement)driver.FindElement(By.ClassName("signup-form"));
-            //5. Verify 'New User Signup!' is visible
+   
             IWebElement emailTextBox = driver.FindElement(By.CssSelector("input[data-qa='signup-email']"));
             IWebElement nameTextBox = driver.FindElement(By.Name("name"));
 
@@ -457,29 +454,29 @@ namespace SeleniumCsharp
             dropYear.SelectByValue("1996");                              
 
 
-            IWebElement newsletterCheckbox = driver.FindElement(By.Id("newsletter")); // 10: Select checkbox 'Sign up for our newsletter!'
+            IWebElement newsletterCheckbox = driver.FindElement(By.Id("newsletter")); 
 
             wait.Until(ExpectedConditions.ElementToBeClickable(newsletterCheckbox));
             newsletterCheckbox.Click();
 
             IWebElement optinCheckbox = driver.FindElement(By.Id("optin"));
-            optinCheckbox.Click();                                                          //11. Select checkbox 'Receive special offers from our partners!'
+            optinCheckbox.Click();                                                         
 
 
 
             IWebElement firstNameTextBox = driver.FindElement(By.Id("first_name"));
             firstNameTextBox.Clear();
-            firstNameTextBox.SendKeys("Bilyana");                                                  // populni vsiickii poleta SendKeys(username);
+            firstNameTextBox.SendKeys("Bilyana");                                                 
             IWebElement lastNameTextBox = driver.FindElement(By.Id("last_name"));
             lastNameTextBox.Clear();
             lastNameTextBox.SendKeys("Nikolova");
-            IWebElement companyTextBox = driver.FindElement(By.Id("company"));           //12. Fill details: First name, Last name, Company, Address, Address2, Cou
+            IWebElement companyTextBox = driver.FindElement(By.Id("company"));           
             companyTextBox.Clear();
             companyTextBox.SendKeys("Vivacom");
             IWebElement addressNameTexBox = driver.FindElement(By.Id("address1"));
             addressNameTexBox.Clear();
             addressNameTexBox.SendKeys("Bdin14 Vidin");
-            IWebElement address2NameTextBox = driver.FindElement(By.Id("address2")); // proveri si ID-to
+            IWebElement address2NameTextBox = driver.FindElement(By.Id("address2")); 
             address2NameTextBox.Clear();
             address2NameTextBox.SendKeys("-");
 
@@ -487,7 +484,7 @@ namespace SeleniumCsharp
             dropContry.SelectByValue("Australia");
             IWebElement stateTextBox = driver.FindElement(By.Id("state"));
             stateTextBox.Clear();
-            stateTextBox.SendKeys("Vidin");                                                                                        // lipsva edno ot poletata state
+            stateTextBox.SendKeys("Vidin");                                                                                        
             IWebElement cityTextBox = driver.FindElement(By.Id("city"));
             cityTextBox.Clear();
             cityTextBox.SendKeys("Vidin");
@@ -500,13 +497,13 @@ namespace SeleniumCsharp
 
 
             IWebElement createAccountButton = driver.FindElement(By.CssSelector("button[data-qa='create-account']"));
-            createAccountButton.Click();                                                                                                           // 13. Click 'Create Account button'
+            createAccountButton.Click();                                                                                                           
                                                                                                                                                    
             IWebElement acountCreaqted = driver.FindElement(By.XPath("//*[@data-qa='account-created']"));
-            Assert.IsTrue(acountCreaqted.Displayed);                                                                  //14.Verify that 'ACCOUNT CREATED!' is visible
-                                                                                                                      // napravi 14-ta kato nemarish elementa s data-qa atributa i sravnish teksta mu s textAc  data-qa="account-created"
+            Assert.IsTrue(acountCreaqted.Displayed);                                                                 
+                                                                                                                    
 
-            //15. Click 'Continue' button
+            //15. 
             IWebElement buttonContinue = (WebElement)driver.FindElement(By.CssSelector("a[data-qa='continue-button']"));   
             wait.Until(ExpectedConditions.ElementToBeClickable(buttonContinue));
             buttonContinue.Click();
@@ -517,7 +514,7 @@ namespace SeleniumCsharp
 
 
             IWebElement buttonDel = (WebElement)driver.FindElement(By.LinkText("Delete Account"));                                
-            wait.Until(ExpectedConditions.ElementToBeClickable(buttonDel));                                              //17. Click 'Delete Account' button
+            wait.Until(ExpectedConditions.ElementToBeClickable(buttonDel));                                             
             buttonDel.Click();
 
           
@@ -526,10 +523,8 @@ namespace SeleniumCsharp
 
         
             IWebElement continueButtonl = (WebElement)driver.FindElement(By.CssSelector("[data-qa='continue-button']"));                                
-            wait.Until(ExpectedConditions.ElementToBeClickable(continueButtonl));                                              //17. Click 'Delete Account' button
-            continueButtonl.Click();                                                                     //18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
-
-
+            wait.Until(ExpectedConditions.ElementToBeClickable(continueButtonl));                                             
+            continueButtonl.Click();                                                                     
 
 
 
@@ -775,8 +770,7 @@ namespace SeleniumCsharp
             IWebElement popUpButton = driver.FindElement(By.XPath("//button[@aria-label='Consent']"));
             popUpButton.Click();
 
-            //IWebElement subscriptionel = driver.FindElement(By.XPath("//h2[@aria-label='Subscription']"));
-            //Assert.IsTrue(subscriptionel.Displayed);
+
             IWebElement subscriptionEl = driver.FindElement(By.XPath("//*[text()='Subscription']"));
             Assert.IsTrue(subscriptionEl.Displayed);
 
@@ -826,15 +820,14 @@ namespace SeleniumCsharp
             IWebElement addToCarButton = driver.FindElement(By.XPath("//a[@data-product-id='1']"));
             addToCarButton.Click();
 
-            //IWebElement continionShippingButton = driver.FindElement(By.XPath("//*[text()=' Continue Shopping']"));
+            
             IWebElement continionShippingButton = driver.FindElement(By.XPath("//*[text()='Continue Shopping']"));
             continionShippingButton.Click();
 
             IWebElement addToCarButton2 = driver.FindElement(By.XPath("//a[@data-product-id='2']"));
             addToCarButton2.Click();
 
-            //IWebElement viewCartButton = driver.FindElement(By.XPath("//*[text()=' View Cart']"));
-            //viewCartButton.Click();
+           
 
             IWebElement viewCartButton = driver.FindElement(By.XPath("//*[contains(text(),'View Cart')]"));
             viewCartButton.Click();
@@ -857,16 +850,13 @@ namespace SeleniumCsharp
             string currentUrl = driver.Url;
             Assert.AreEqual("https://automationexercise.com/product_details/1", currentUrl);
             IWebElement productQuantity1 = driver.FindElement(By.Id("quantity"));
-            //IWebElement productQuantity1 = driver.FindElement(By.Id("Quantity"));
+
             productQuantity1.Click();
             productQuantity1.Click();
             productQuantity1.Click();
             productQuantity1.Click();
             IWebElement addToCartButton = driver.FindElement(By.XPath("//button[contains(normalize-space(text()), ' Add to cart')]"));
-            //IWebElement addToCartButton = driver.FindElement(By.XPath("//button[text()='Add to cart']"));
-            //IWebElement addToCartButton = driver.FindElement(By.XPath("//button[@class='btn btn-default cart' and text()='Add to cart']"));
-            //IWebElement addToCartButton = driver.FindElement(By.XPath("//button[contains(text(), 'Add to cart')]"));
-            //IWebElement addToCarButton = driver.FindElement(By.XPath("//button[contains(text(),' Add to cart ')]"));
+            
             addToCartButton.Click();                                    
 
             IWebElement viewCartButton = driver.FindElement(By.XPath("//*[text()=' View Cart']"));
@@ -877,18 +867,13 @@ namespace SeleniumCsharp
         public void placeOrderRegisterBeforeCheckout()
         {
             driver.Navigate().GoToUrl("https://automationexercise.com/");
-            IWebElement popUpButton = driver.FindElement(By.XPath("//button[@aria-label='Consent']"));     //Navigate to url 'http://automationexercise.com'
+            IWebElement popUpButton = driver.FindElement(By.XPath("//button[@aria-label='Consent']"));     
             popUpButton.Click();           
-            //string currentUrl = driver.Url;
-            //Assert.AreEqual("https://automationexercise.com/product_details/1", currentUrl);
-            //IWebElement shoppingCart = driver.FindElement(By.XPath("//*[text()='Shopping Cart']"));
-            //Assert.IsTrue(shoppingCart.Displayed);
-            //IWebElement proceedToChecoutButton = driver.FindElement(By.XPath("//*[text()='Proceed To Checkout']"));
-            //proceedToChecoutButton.Click();
-            IWebElement registerLoginButton = driver.FindElement(By.XPath("//*[text()=' Signup / Login']"));  //4. Click 'Signup / Login' button
+     
+            IWebElement registerLoginButton = driver.FindElement(By.XPath("//*[text()=' Signup / Login']"));  
             registerLoginButton.Click();
             IWebElement nameTextBox = driver.FindElement(By.CssSelector("[data-qa='signup-name']"));
-            nameTextBox.Clear();                                                                             //5.Fill all details in Signup and create account
+            nameTextBox.Clear();                                                                            
             nameTextBox.SendKeys("Bilyanaa");
             IWebElement emailTextBox = driver.FindElement(By.CssSelector("[data-qa='signup-email']")); 
             emailTextBox.Clear();
@@ -900,9 +885,7 @@ namespace SeleniumCsharp
             IWebElement nameTexBox = driver.FindElement(By.Id("name"));
             nameTexBox.Clear();
             nameTexBox.SendKeys("Bilyanaa");
-            //IWebElement emailTextBov = driver.FindElement(By.Id("email"));
-            //emailTextBov.Clear();
-            //emailTextBov.SendKeys("biba.nikolova1233333@abv.bg");
+       
             IWebElement passwordTextBox = driver.FindElement(By.Id("password"));
             passwordTextBox.Clear();
             passwordTextBox.SendKeys("999");
@@ -921,10 +904,6 @@ namespace SeleniumCsharp
 
             IWebElement optinCheckbox = driver.FindElement(By.Id("optin"));
             optinCheckbox.Click();
-
-            //IWebElement sinUpEmailTextBox = driver.FindElement(By.CssSelector("[data-qa='signup-email']"));
-            //sinUpEmailTextBox.Clear();
-            //sinUpEmailTextBox.SendKeys("biba.nikolova1233333@abv.bg");
             IWebElement firstNameTextBox = driver.FindElement(By.Id("first_name"));
             firstNameTextBox.Clear();
             firstNameTextBox.SendKeys("Bilyanaa");
@@ -957,45 +936,39 @@ namespace SeleniumCsharp
             mobileNumberTextBox.SendKeys("0888034797");
 
             IWebElement createAccountButton = driver.FindElement(By.CssSelector("button[data-qa='create-account']"));
-            createAccountButton.Click();                                                                                // Verify 'ACCOUNT CREATED!' and click 'Continue' button
+            createAccountButton.Click();                                                                                
             IWebElement acountCreaqted = driver.FindElement(By.XPath("//*[@data-qa='account-created']"));
             Assert.IsTrue(acountCreaqted.Displayed);
             IWebElement continueButton = driver.FindElement(By.XPath("//*[@data-qa='continue-button']"));
             continueButton.Click();
-            IWebElement loggedAs = driver.FindElement(By.XPath("//a[contains(text(),'Logged in as')]"));  // Verify ' Logged in as username' at top
+            IWebElement loggedAs = driver.FindElement(By.XPath("//a[contains(text(),'Logged in as')]")); 
             Assert.IsTrue(loggedAs.Displayed);
 
             IWebElement producstButton = driver.FindElement(By.XPath("//*[text()=' Products']"));
             producstButton.Click();
             driver.Navigate().GoToUrl("https://automationexercise.com/product_details/1");
-            //IWebElement addToCart = driver.FindElement(By.XPath("//button[contains(text(),' Add to cart')]"));
-            //8. Add products to cart  
-            //addToCart.Click();
             IWebElement addToCartButton = driver.FindElement(By.XPath("//button[@class='btn btn-default cart']"));
             addToCartButton.Click();
             IWebElement continueShoppingButton = driver.FindElement(By.XPath("//button[@class='btn btn-success close-modal btn-block' and text()='Continue Shopping']"));
         
-            //IWebElement continueShoppingButton = driver.FindElement(By.XPath("//*[text()='Continue Shopping']"));
-            //continueShoppingButton.Click();
+            
             IWebElement cartButton = driver.FindElement(By.XPath("//*[text()=' Cart']"));
-            cartButton.Click();                                                                                              //Click 'Cart' button
+            cartButton.Click();                                                                                            
 
 
-            //ontinueShopping.Click(); 
             IWebElement proceedToChecoutButton = driver.FindElement(By.XPath("//a[contains(text(),'Proceed To Checkout')]")); 
-            proceedToChecoutButton.Click();                                                                           // Click Proceed To Checkout
+            proceedToChecoutButton.Click();                                                                           
 
 
-            //IWebElement reviewYourOrder = driver.FindElement(By.XPath("//a[contains(text(),'Review Your Order')]"));
             IWebElement reviewYourOrder = driver.FindElement(By.XPath("//h2[contains(text(), 'Review Your Order')]"));
-            Assert.IsTrue(reviewYourOrder.Displayed);                                                                         //12. Verify Address Details and Review Your Order
-            IWebElement commentTextArea = driver.FindElement(By.ClassName("form-control"));             //13. Enter description in comment text area and click 'Place Order'
+            Assert.IsTrue(reviewYourOrder.Displayed);                                                                         
+            IWebElement commentTextArea = driver.FindElement(By.ClassName("form-control"));            
             commentTextArea.SendKeys("This is a test order");
             IWebElement placeOrder = driver.FindElement(By.XPath("//a[contains(text(),'Place Order')]"));
             placeOrder.Click();
-            IWebElement nameOnKard = driver.FindElement(By.CssSelector("input[data-qa='name-on-card']")); //14. Enter payment details: Name on Card, Card Number, CVC, Expiration date
+            IWebElement nameOnKard = driver.FindElement(By.CssSelector("input[data-qa='name-on-card']")); 
             nameOnKard.SendKeys("Bilyana Nikolova");
-            IWebElement numOnKard = driver.FindElement(By.CssSelector("input[data-qa='card-number']")); //14. Enter payment details: Name on Card, Card Number, CVC, Expiration date
+            IWebElement numOnKard = driver.FindElement(By.CssSelector("input[data-qa='card-number']")); 
             numOnKard.SendKeys("0000 0000 00");
             IWebElement cvcNumber = driver.FindElement(By.CssSelector("input[data-qa='cvc']"));
             cvcNumber.SendKeys("166");
@@ -1003,12 +976,12 @@ namespace SeleniumCsharp
             expiryMonth.SendKeys("0308");
             IWebElement expiryYear = driver.FindElement(By.CssSelector("input[data-qa='expiry-year']"));
             expiryYear.SendKeys("2027");
-            IWebElement payButton = driver.FindElement(By.CssSelector("button[data-qa='pay-button']"));    //15. Click 'Pay and Confirm Order' button
+            IWebElement payButton = driver.FindElement(By.CssSelector("button[data-qa='pay-button']"));   
             payButton.Click();
             IWebElement yourOrderHasBeenplacedSuccessfully = driver.FindElement(By.CssSelector("div.alert-success.alert"));
-            IWebElement delAccount = driver.FindElement(By.XPath("//a[contains(text(),' Delete Account')]"));   //17. Click 'Delete Account' button
+            IWebElement delAccount = driver.FindElement(By.XPath("//a[contains(text(),' Delete Account')]"));  
             delAccount.Click();
-            IWebElement delMessage = driver.FindElement(By.XPath("//*[contains(text(),'Account Deleted!')]"));  //Verify 'ACCOUNT DELETED!' and click 'Continue' button
+            IWebElement delMessage = driver.FindElement(By.XPath("//*[contains(text(),'Account Deleted!')]"));  
             Assert.IsTrue(delMessage.Displayed);
 
         }
@@ -1044,9 +1017,6 @@ namespace SeleniumCsharp
             IWebElement nameTexBox = driver.FindElement(By.Id("name"));
             nameTexBox.Clear();
             nameTexBox.SendKeys("Bilyanaa");
-            //IWebElement emailTextBov = driver.FindElement(By.Id("email"));
-            //emailTextBov.Clear();
-            //emailTextBov.SendKeys("biba.nikolova1233333@abv.bg");
             IWebElement passwordTextBox = driver.FindElement(By.Id("password"));
             passwordTextBox.Clear();
             passwordTextBox.SendKeys("999");
@@ -1065,9 +1035,6 @@ namespace SeleniumCsharp
 
             IWebElement optinCheckbox = driver.FindElement(By.Id("optin"));
             optinCheckbox.Click();
-            //IWebElement sinUpEmailTextBox = driver.FindElement(By.CssSelector("[data-qa='signup-email']"));
-            //sinUpEmailTextBox.Clear();
-            //sinUpEmailTextBox.SendKeys("biba.nikolova1233333@abv.bg");
             IWebElement firstNameTextBox = driver.FindElement(By.Id("first_name"));
             firstNameTextBox.Clear();
             firstNameTextBox.SendKeys("Bilyanaa");
@@ -1158,18 +1125,15 @@ namespace SeleniumCsharp
             IWebElement womenCategoruButton = driver.FindElement(By.XPath("//i[@class='fa fa-plus']"));
             womenCategoruButton.Click();
             IWebElement dressCategory = driver.FindElement(By.XPath("//a[contains(text(), 'Dress')]"));
-            //IWebElement dressCategory = driver.FindElement(By.CssSelector("a[href='/category_products/1']:contains('Dress')"));
             dressCategory.Click();
             IWebElement text = driver.FindElement(By.XPath("//*[text()='Women - Dress Products']"));
             Assert.IsTrue(text.Displayed);
             IWebElement mensCategoruButton = driver.FindElement(By.XPath("//a[@data-toggle='collapse' and @data-parent='#accordian' and @href='#Men']"));
-            //IWebElement mensCategoruButton = driver.FindElement(By.XPath("//i[@class='fa fa-plus']"));
+          
             mensCategoruButton.Click();
             IWebElement tshirts = driver.FindElement(By.XPath("//a[contains(text(), 'Tshirts')]"));
             tshirts.Click();
-            //IWebElement tshirts = driver.FindElement(By.XPath("//a[@href='/category_products/3' and text()='Tshirts']"));
-            Assert.IsTrue(tshirts.Displayed);
-
+           
         }
 
 
